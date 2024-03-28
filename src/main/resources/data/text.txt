@@ -1,0 +1,6 @@
+hello	xin chao
+again	một lần nữa
+thank	cảm ơn
+bye	tạm biệt
+blue	xanh biển
+red	đỏ
