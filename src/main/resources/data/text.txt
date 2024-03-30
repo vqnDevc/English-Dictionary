@@ -4,3 +4,11 @@ thank	cảm ơn
 bye	tạm biệt
 blue	xanh biển
 red	đỏ
+color   màu
+transmit	giao dịch
+transport	giao thông
+back	trở lại
+bee	con ong
+transform	biến hình
+deep	sâu
+die	chết

@@ -2,6 +2,7 @@ package com.englishdictionary.dictionaryenglish.Utils;
 
 import com.englishdictionary.dictionaryenglish.Commandline.DictionaryCommandline;
 
+import java.io.IOException;
 
 
 public class DictionaryCommandLine {
@@ -12,18 +13,16 @@ public class DictionaryCommandLine {
     }
 
     public void dictionaryBasic() {
-        dictionaryCommandline.insertFromCommandline();
-        dictionaryCommandline.showAllWords();
-/*
+//        dictionaryCommandline.insertFromCommandline();
         String filePath = "E:\\DictionaryEnglish\\src\\main\\resources\\data\\text.txt";
         dictionaryCommandline.insertFromFile(filePath);
-*/
+
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         DictionaryCommandLine test = new DictionaryCommandLine();
         test.dictionaryBasic();
 
-        test.dictionaryCommandline.dictionaryLookup();
+        test.dictionaryCommandline.dictionaryAdvanced();
     }
 }

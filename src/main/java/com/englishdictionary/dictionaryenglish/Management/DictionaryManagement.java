@@ -4,14 +4,26 @@ import com.englishdictionary.dictionaryenglish.Entities.Dictionary;
 import com.englishdictionary.dictionaryenglish.Entities.Word;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryManagement {
     protected Dictionary dictionary;
-    private static final Scanner scanner = new Scanner(System.in);
+    protected List<Word> searchResultList;      // List words searcher
+    protected static final Scanner scanner = new Scanner(System.in);
 
     public DictionaryManagement() {
         dictionary = new Dictionary();
+        searchResultList = new ArrayList<>();
+    }
+
+    public Dictionary getDictionary() {
+        return dictionary;
+    }
+
+    public List<Word> getSearchResultList() {
+        return searchResultList;
     }
 
     /**
@@ -56,12 +68,26 @@ public class DictionaryManagement {
     }
 
     /**
+     * Export to file.
+     * @param filePath file
+     */
+    public void dictionaryExportFile(String filePath) throws IOException {
+        FileWriter fileWriter = new FileWriter(filePath);
+
+        StringBuilder stringBuilder =new StringBuilder();
+        for (Word word : dictionary.getWordList()) {
+            stringBuilder.append(word.getWord_target()).append("\t");
+            stringBuilder.append(word.getWord_explain()).append("\n");
+        }
+
+        fileWriter.write(stringBuilder.toString());
+        fileWriter.close();
+    }
+
+    /**
      * Find word explain in dictionary.
      */
-    public void dictionaryLookup() {
-        System.out.print("Look up a word in Dictionary: ");
-        String wordTarget = scanner.nextLine();
-
+    public void dictionaryLookup(String wordTarget) {
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().equals(wordTarget)) {
                 System.out.println("Word Explain: " + word.getWord_explain());
@@ -69,5 +95,62 @@ public class DictionaryManagement {
             }
         }
         System.out.println("This word don't exit in Dictionary");
+    }
+
+    /**
+     * Add word to Dictionary.
+     * @param wordTarget target
+     * @param wordExplain explain
+     */
+    public void addToDictionary(String wordTarget, String wordExplain) {
+        dictionary.addWord(new Word(wordTarget, wordExplain));
+    }
+
+    /**
+     * Edit word in Dictionary.
+     * @param wordTarget target
+     * @param replaceWordExplain replace explain
+     */
+    public void updateWordInDictionary(String wordTarget, String replaceWordExplain) {
+        for (Word word : dictionary.getWordList()) {
+            if (word.getWord_target().equals(wordTarget)) {
+                word.setWord_explain(replaceWordExplain);
+                return;
+            }
+        }
+    }
+
+    /**
+     * Remove a word from Dictionary.
+     * @param wordTarget target
+     */
+    public  void removeFromDictionary(String wordTarget) {
+        dictionary.getWordList().removeIf(word -> word.getWord_target().equals(wordTarget));
+    }
+
+    /**
+     * Search word with prefix.
+     * @param prefixWord string
+     */
+    public void dictionarySearcher(String prefixWord) {
+        for (Word word : dictionary.getWordList()) {
+            if (word.getWord_target().startsWith(prefixWord)) {
+                searchResultList.add(word);
+            }
+        }
+    }
+
+    /**
+     * Check word exit.
+     * @param wordTarget target
+     * @return boolean
+     */
+    public boolean wordExit(String wordTarget) {
+        for (Word word : dictionary.getWordList()) {
+            if (word.getWord_target().equals(wordTarget)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
