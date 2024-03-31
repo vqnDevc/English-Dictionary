@@ -14,8 +14,6 @@ public class DictionaryCommandLine {
 
     public void dictionaryBasic() {
 //        dictionaryCommandline.insertFromCommandline();
-        String filePath = "E:\\DictionaryEnglish\\src\\main\\resources\\data\\text.txt";
-        dictionaryCommandline.insertFromFile(filePath);
 
     }
 

@@ -4,14 +4,28 @@ import com.englishdictionary.dictionaryenglish.Entities.Dictionary;
 import com.englishdictionary.dictionaryenglish.Entities.Word;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class DictionaryManagement {
-    protected Dictionary dictionary;
-    protected List<Word> searchResultList;      // List words searcher
+    private final Dictionary dictionary;
+
+    private final List<Word> searchResultList;      // List words searcher
+
     protected static final Scanner scanner = new Scanner(System.in);
+
+    public final static String DICTIONARY_INPUT_FILE_PATH = System.getProperty("user.dir")   //filepath input data
+            + File.separator + "src"
+            + File.separator + "main"
+            + File.separator + "resources"
+            + File.separator + "data"
+            + File.separator + "inputData.txt";
+
+    public final static String DICTIONARY_EXPORT_FILE_PATH = System.getProperty("user.dir")   //filepath input data
+            + File.separator + "src"
+            + File.separator + "main"
+            + File.separator + "resources"
+            + File.separator + "data"
+            + File.separator + "exportData.txt";
 
     public DictionaryManagement() {
         dictionary = new Dictionary();
@@ -30,26 +44,47 @@ public class DictionaryManagement {
      * Enter data from keyboard.
      */
     public void insertFromCommandline() {
-        System.out.print("Enter the number of words: ");
-        int wordCount = scanner.nextInt();
-        scanner.nextLine();
+        int wordCount = 0;
+        boolean validInput = false;
+
+        while (!validInput) {
+            System.out.print("ADD: Enter the number of words: ");
+            try {
+                wordCount = scanner.nextInt();
+                scanner.nextLine();
+                validInput = true;      //Mark valid input to exit the loop
+            } catch (InputMismatchException e) {
+                System.err.println("Please enter an integer.");
+                scanner.next();
+            }
+        }
 
         for (int i = 0; i < wordCount; i++) {
-            System.out.println("Word number " + (i+1));
+            System.out.println("Word number " + (i + 1));
             System.out.print("Enter the word target: ");
             String word_target = scanner.nextLine();
+
+            while (wordExit(word_target)) {
+                System.out.println("This word is already existed!");
+                System.out.print("Enter the word target: ");
+                word_target = scanner.nextLine();
+            }
 
             System.out.print("Enter the word explain: ");
             String word_explain = scanner.nextLine();
 
-            dictionary.addWord(new Word(word_target, word_explain));
+            addToDictionary(word_target, word_explain);
+            System.out.println("This word was added to Dictionary.\n");
         }
+        dictionarySort();
     }
+
 
     /**
      * Enter data from file.
      */
     public void insertFromFile(String filePath) {
+        dictionary.getWordList().clear();
         File file = new File(filePath);
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -59,9 +94,12 @@ public class DictionaryManagement {
                 if (parts.length >= 2) {
                     String wordTarget =  parts[0];
                     String wordExplain = parts[1];
-                    dictionary.addWord(new Word(wordTarget, wordExplain));
+                    addToDictionary(wordTarget, wordExplain);
                 }
             }
+            dictionarySort();
+            bufferedReader.close();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -73,8 +111,8 @@ public class DictionaryManagement {
      */
     public void dictionaryExportFile(String filePath) throws IOException {
         FileWriter fileWriter = new FileWriter(filePath);
-
-        StringBuilder stringBuilder =new StringBuilder();
+        System.out.println(filePath);
+        StringBuilder stringBuilder = new StringBuilder();
         for (Word word : dictionary.getWordList()) {
             stringBuilder.append(word.getWord_target()).append("\t");
             stringBuilder.append(word.getWord_explain()).append("\n");
@@ -133,11 +171,19 @@ public class DictionaryManagement {
      * @param prefixWord string
      */
     public void dictionarySearcher(String prefixWord) {
+        searchResultList.clear();
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().startsWith(prefixWord)) {
                 searchResultList.add(word);
             }
         }
+    }
+
+    /**
+     * Sort the dictionary by A-Z.
+     */
+    public void dictionarySort() {
+        dictionary.getWordList().sort(Comparator.comparing(Word::getWord_target));
     }
 
     /**
