@@ -18,7 +18,7 @@ public class DictionaryManagement {
             + File.separator + "main"
             + File.separator + "resources"
             + File.separator + "data"
-            + File.separator + "inputData.txt";
+            + File.separator + "dictionaries.txt";
 
     public final static String DICTIONARY_EXPORT_FILE_PATH = System.getProperty("user.dir")   //filepath input data
             + File.separator + "src"
@@ -99,19 +99,32 @@ public class DictionaryManagement {
             }
             dictionarySort();
             bufferedReader.close();
+            System.out.println("Import from file successfully.");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public void exportFile() {
+        if (dictionary.getWordList().isEmpty()) {
+            System.out.println("The Dictionary has no words, please add or import words to Dictionary.");
+        } else {
+            try {
+                dictionaryExportFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("Export to file successfully.");
+        }
+    }
+
     /**
      * Export to file.
-     * @param filePath file
      */
-    public void dictionaryExportFile(String filePath) throws IOException {
-        FileWriter fileWriter = new FileWriter(filePath);
-        System.out.println(filePath);
+    private void dictionaryExportFile() throws IOException {
+        FileWriter fileWriter = new FileWriter(DictionaryManagement.DICTIONARY_EXPORT_FILE_PATH);
+        System.out.println(DictionaryManagement.DICTIONARY_EXPORT_FILE_PATH);
         StringBuilder stringBuilder = new StringBuilder();
         for (Word word : dictionary.getWordList()) {
             stringBuilder.append(word.getWord_target()).append("\t");
@@ -122,17 +135,32 @@ public class DictionaryManagement {
         fileWriter.close();
     }
 
+    public void lookUpWord() {
+        if (getDictionary().getWordList().isEmpty()) {
+            System.out.println("The Dictionary has no words, please add or import words to Dictionary.");
+        } else {
+            System.out.println("LOOKUP: Enter your word target: ");
+            String wordTarget = scanner.nextLine().toLowerCase();
+
+            if (wordExit(wordTarget)) {
+                dictionaryLookup(wordTarget);
+            } else {
+                System.err.println("This word does not exist in the dictionary");
+            }
+        }
+    }
+
     /**
      * Find word explain in dictionary.
      */
-    public void dictionaryLookup(String wordTarget) {
+    private void dictionaryLookup(String wordTarget) {
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().equals(wordTarget)) {
                 System.out.println("Word Explain: " + word.getWord_explain());
                 return;
             }
         }
-        System.out.println("This word don't exit in Dictionary");
+        System.err.println("This word does not exist in the dictionary");
     }
 
     /**
@@ -140,8 +168,26 @@ public class DictionaryManagement {
      * @param wordTarget target
      * @param wordExplain explain
      */
-    public void addToDictionary(String wordTarget, String wordExplain) {
-        dictionary.addWord(new Word(wordTarget, wordExplain));
+    private void addToDictionary(String wordTarget, String wordExplain) {
+        dictionary.addWord(new Word(wordTarget.toLowerCase(), wordExplain.toLowerCase()));
+    }
+
+    public void updateWord() {
+        if (getDictionary().getWordList().isEmpty()) {
+            System.out.println("The Dictionary has no words, please add or import words to Dictionary.");
+        } else {
+            System.out.println("UPDATE: Enter word target to update: ");
+            String wordTarget = scanner.nextLine().toLowerCase();
+
+            if (wordExit(wordTarget)) {
+                System.out.println("UPDATE: Enter new word explain of this word: ");
+                String wordExplain = scanner.nextLine();
+                updateWordInDictionary(wordTarget, wordExplain);
+                System.out.println("Update completed.\n");
+            } else {
+                System.err.println("This word does not exist in the dictionary");
+            }
+        }
     }
 
     /**
@@ -149,7 +195,7 @@ public class DictionaryManagement {
      * @param wordTarget target
      * @param replaceWordExplain replace explain
      */
-    public void updateWordInDictionary(String wordTarget, String replaceWordExplain) {
+    private void updateWordInDictionary(String wordTarget, String replaceWordExplain) {
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().equals(wordTarget)) {
                 word.setWord_explain(replaceWordExplain);
@@ -158,19 +204,46 @@ public class DictionaryManagement {
         }
     }
 
+    public void removeWord() {
+        if (dictionary.getWordList().isEmpty()) {
+            System.out.println("The Dictionary has no words, please add or import words to Dictionary.");
+        } else {
+            System.out.println("REMOVE: Enter word target to remove: ");
+            String wordTarget = scanner.nextLine().toLowerCase();
+
+            if (wordExit(wordTarget)) {
+                removeFromDictionary(wordTarget);
+                System.out.println("This word are completely removed.\n");
+            } else {
+                System.out.println("This word is not exit.\n");
+            }
+        }
+    }
+
     /**
      * Remove a word from Dictionary.
      * @param wordTarget target
      */
-    public  void removeFromDictionary(String wordTarget) {
+    private void removeFromDictionary(String wordTarget) {
         dictionary.getWordList().removeIf(word -> word.getWord_target().equals(wordTarget));
+    }
+
+    public void searchWord() {
+        if (getDictionary().getWordList().isEmpty()) {
+            System.out.println("The Dictionary has no words, please add or import words to Dictionary.");
+        } else {
+            System.out.println("SEARCH: Enter your prefix word: ");
+            String wordTarget = scanner.nextLine().toLowerCase();
+            dictionarySearcher(wordTarget);
+            showAllWordsSearch();
+        }
     }
 
     /**
      * Search word with prefix.
      * @param prefixWord string
      */
-    public void dictionarySearcher(String prefixWord) {
+    private void dictionarySearcher(String prefixWord) {
         searchResultList.clear();
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().startsWith(prefixWord)) {
@@ -179,10 +252,27 @@ public class DictionaryManagement {
         }
     }
 
+    private void showAllWordsSearch() {
+        if (searchResultList.isEmpty()) {
+            System.out.println("No words found!");
+        } else {
+            System.out.println();
+            System.out.printf("%-4s | %-18s | %-20s%n", "No", "English", "Vietnamese");
+
+            for (Word word : searchResultList) {
+                System.out.printf(
+                        "%-4s | %-18s | %-20s%n",
+                        searchResultList.indexOf(word) + 1,
+                        word.getWord_target(),
+                        word.getWord_explain());
+            }
+        }
+    }
+
     /**
      * Sort the dictionary by A-Z.
      */
-    public void dictionarySort() {
+    private void dictionarySort() {
         dictionary.getWordList().sort(Comparator.comparing(Word::getWord_target));
     }
 
@@ -191,7 +281,7 @@ public class DictionaryManagement {
      * @param wordTarget target
      * @return boolean
      */
-    public boolean wordExit(String wordTarget) {
+    private boolean wordExit(String wordTarget) {
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().equals(wordTarget)) {
                 return true;
