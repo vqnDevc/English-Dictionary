@@ -1,4 +1,4 @@
-package com.englishdictionary.dictionaryenglish.Utils;
+package com.englishdictionary.dictionaryenglish;
 
 import com.englishdictionary.dictionaryenglish.Commandline.DictionaryCommandline;
 

@@ -59,8 +59,6 @@ public class DictionaryCommandline extends DictionaryManagement {
                 continue;
             }
 
-            String wordTarget;
-            String wordExplain;
             switch (choice) {
                 case 0:
                     System.out.println("Exiting...");

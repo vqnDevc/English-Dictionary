@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.englishdictionary.dictionaryenglish/com.englishdictionary.dictionaryenglish.HelloApplication
+                                com.englishdictionary.dictionaryenglish/com.englishdictionary.dictionaryenglish.DictionaryApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
