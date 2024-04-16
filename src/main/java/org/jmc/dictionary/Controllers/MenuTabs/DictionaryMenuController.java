@@ -1,4 +1,4 @@
-package com.englishdictionary.dictionaryenglish.Controllers.MenuTabs;
+package org.jmc.dictionary.Controllers.MenuTabs;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
