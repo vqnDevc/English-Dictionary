@@ -1,0 +1,32 @@
+.pronunciation-field {
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+}
+
+.pronunciation-field .content {
+    -fx-background-color: white;
+}
+
+.pronunciation-field:focused {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10 , 0.5, 0, 1);
+}
+
+.answer-field {
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+    border-radius: 8px;
+}
+
+.answer-field:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.answer-field:focused {
+    -fx-background-radius: 10px;
+}

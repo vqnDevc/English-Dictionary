@@ -1,0 +1,16 @@
+.text-area {
+    -fx-background-color: white;
+    -fx-border-radius: 15px;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+}
+
+.text-area .content {
+    -fx-background-color: white;
+}
+
+.text-area:focused {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10 , 0.5, 0, 1);
+}

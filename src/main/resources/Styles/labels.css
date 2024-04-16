@@ -1,0 +1,119 @@
+.word-label {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.word-label:hover {
+    -fx-background-image: url('../Images/utilities/copy.png');
+    -fx-background-size: 32;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 98% 50%;
+    -fx-background-color:#FAFAFA;
+    -fx-underline: true;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+    background-image: url('../Images/utilities/copy.png');
+    background-size: 42;
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+    background-color: #FAFAFA;
+}
+
+.game-rule-label {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.game-rule-label:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.word-count-label {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.combo-count-label {
+    -fx-background-image: url('../icons/guess-word-game/streak.png');
+    -fx-background-size: 32;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10% 50%;
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: #2e2e2e;
+}
+
+.highest-combo-count-label {
+    -fx-background-image: url('../icons/guess-word-game/high-score.png');
+    -fx-background-size: 32;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10% 50%;
+    -fx-background-color: #2e2e2e;
+    -fx-background-radius: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: #2e2e2e;
+}
+
+.shuffle-question-label {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.shuffle-question-label.wrong {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+.shuffle-question-label.right {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+.shuffle-desc-label {
+    -fx-background-image: url('../icons/guess-word-game/info.png');
+    -fx-background-size: 48;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 5% 50%;
+    -fx-background-color: whitesmoke;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.hint-label {
+    -fx-background-image: url('../icons/guess-word-game/hint.png');
+    -fx-background-size: 64;
+    -fx-background-color: rgba(83, 224, 13, 0.4);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50% 50%;
+}
+
+.hint-label:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.hint-label.clicked {
+    -fx-background-size: 0;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.hint-label.clicked:hover {
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}

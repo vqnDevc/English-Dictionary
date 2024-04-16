@@ -1,0 +1,211 @@
+.translate-button {
+    -fx-background-image: url('../Images/decorations/translate.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(101, 126, 228, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 53% 20%;
+}
+
+.translate-button:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(109, 142, 255, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.add-button {
+    -fxbackground-image: url('../Images/decorations/add_dark.png');
+    -fx-background-size: 28;
+    -fx-background-color: rgba(101, 126, 228, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50% 15%;
+}
+
+.add-button:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(109, 142, 255, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.exit-button {
+    -fx-background-image: url('../Images/decorations/exit.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(241, 85, 200, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 8% 50%;
+}
+
+.exit-button:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(241, 85, 200, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.shuffle-game {
+    -fx-background-image: url('../Images/decorations/shuffle.png');
+    -fx-background-size: 48;
+    -fx-background-color: rgba(110, 196, 235, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 8% 50%;
+}
+
+.shuffle-game:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(110, 196, 235, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.guess-game {
+    -fx-background-image: url('../Images/decorations/guess.png');
+    -fx-background-size: 48;
+    -fx-background-color: rgba(110, 196, 235, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 8% 50%;
+}
+
+.guess-game:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(110, 196, 235, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.enter-game {
+    -fx-background-image: url('../Images/decorations/enter.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(101, 126, 228, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 46% 20%;
+}
+
+.enter-game:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(101, 126, 228, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.answer-button1 {
+    -fx-background-image: url('../Images/guess-word-game/triangle.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(191, 53, 56, 0.7);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10% 50%;
+}
+
+.answer-button1:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(191, 53, 56, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.answer-button1.wrong {
+    -fx-background-color: red;
+}
+
+.answer-button1.right {
+    -fx-background-color: green;
+}
+
+.answer-button2 {
+    -fx-background-image: url('../Images/guess-word-game/diamond.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(58, 84, 198, 0.7);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10% 50%;
+}
+
+.answer-button2:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(58, 84, 198, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.answer-button2.wrong {
+    -fx-background-color: red;
+}
+
+.answer-button2.right {
+    -fx-background-color: green;
+}
+
+.answer-button3 {
+    -fx-background-image: url('../Images/guess-word-game/circle.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(177, 143, 19, 0.7);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10% 50%;
+}
+
+.answer-button3:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(177, 143, 19, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.answer-button3.wrong {
+    -fx-background-color: red;
+}
+
+.answer-button3.right {
+    -fx-background-color: green;
+}
+
+.answer-button4 {
+    -fx-background-image: url('../icons/guess-word-game/square.png');
+    -fx-background-size: 32;
+    -fx-background-color: rgba(70, 128, 20, 0.7);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10% 50%;
+}
+
+.answer-button4:hover {
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+    -fx-background-color: rgba(70, 128, 20, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.answer-button4.wrong {
+    -fx-background-color: red;
+}
+
+.answer-button4.right {
+    -fx-background-color: green;
+}

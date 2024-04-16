@@ -1,0 +1,40 @@
+.autocomplete-list {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: white;
+}
+
+.autocomplete-list:focused {
+    -fx-background-color: white;
+    background-color: white;
+}
+
+.list-cell {
+    -fx-border-width: 0px;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    border-width: 0px;
+}
+
+.list-cell:hover {
+    -fx-background-color: whitesmoke;
+    -fx-text-fill: black;
+    background-color: whitesmoke;
+}
+
+.list-cell:selected {
+    -fx-font-size: 15px;
+    -fx-border-width: 0 0 0 3px;
+    -fx-border-color: transparent;
+    font-size: 15px;
+    border-width: 0 0 0 3px;
+    border-color: transparent;
+}
+
+/*
+.list-view .list-cell {
+    -fx-graphic: url('../icons/search-dark.png');
+    -fx-graphic-text-gap: 10px;
+} 
+*/
+  

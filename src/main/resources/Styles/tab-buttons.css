@@ -1,0 +1,27 @@
+.tab-button {
+    -fx-background-color: #657ee4;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-color: #657ee4;
+    border-radius: 10px;
+}
+
+.tab-button:hover {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-background-color: #6D8EFF;
+    -fx-underline: true;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+    background-color: #6D8EFF;
+}
+
+.tab-button:pressed {
+    -fx-background-color: #6D6DFF;
+    background-color: #6D6DFF;
+}
+
+.tab-button.active {
+    -fx-background-color: #7165E9;
+    background-color: #7165E9;
+}

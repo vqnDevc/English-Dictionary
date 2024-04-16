@@ -1,0 +1,3 @@
+.explain-pane {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+}

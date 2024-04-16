@@ -1,0 +1,27 @@
+.search-bar {
+    -fx-background-image: url('../Images/decorations/search-dark.png');
+    -fx-background-size: 28;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 97% 50%;
+    -fx-background-insets: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    background-image: url('../Images/decorations/search-dark.png');
+    background-size: 28;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    background-color: #a9a9a9, white, white;
+    border-radius: 5px;
+}
+
+.search-bar:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
+}
+
+.search-bar:focused {
+    -fx-background-color: #a9a9a9, white, white;
+    -fx-background-radius: 5px;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -2 3 -2;
+    background-color: #a9a9a9 , white , white;
+}

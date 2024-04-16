@@ -3,6 +3,6 @@ module com.englishdictionary.dictionaryenglish {
     requires javafx.fxml;
 
 
-    opens com.englishdictionary.dictionaryenglish to javafx.fxml;
-    exports com.englishdictionary.dictionaryenglish;
+    opens org.jmc.dictionary to javafx.fxml;
+    exports org.jmc.dictionary;
 }
