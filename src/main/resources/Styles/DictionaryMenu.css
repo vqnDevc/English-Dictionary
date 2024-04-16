@@ -45,6 +45,12 @@
 
 .menu_container Button:hover {
     -fx-cursor: hand;
+    -fx-background-color: #3773d4;
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu_container Button:hover FontAwesomeIconView {
+    -fx-fill: #FFFFFF;
 }
 
 .menu_container Button FontAwesomeIconView {
