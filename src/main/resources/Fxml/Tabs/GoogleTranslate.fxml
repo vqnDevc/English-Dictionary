@@ -1,14 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.jmc.dictionary.Controllers.MenuTabs.GoogleTranslateController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="705.0" prefWidth="1100.0" styleClass="searcher_container" stylesheets="@../../Styles/Searcher.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jmc.dictionary.Controllers.MenuTabs.GoogleTranslateController">
+    <left>
+        <AnchorPane prefHeight="620.0" prefWidth="480.0" BorderPane.alignment="CENTER">
+            <TextArea fx:id="inputTextArea" layoutX="38.0" layoutY="75.0" onKeyTyped="#onInputTextAreaTyped"
+                      prefHeight="258.0" prefWidth="438.0" promptText="Enter your word (paragraph) to translate here"
+                      styleClass="text-area" stylesheets="@../../Styles/text-areas.css" wrapText="true">
+                <font>
+                    <Font size="20.0"/>
+                </font>
+            </TextArea>
+            <ChoiceBox fx:id="sourceLangChoiceBox" layoutX="38.0" layoutY="14.0" prefHeight="38.0" prefWidth="438.0"
+                       styleClass="language-dropdown" stylesheets="@../../Styles/language-dropdown.css"/>
+            <StackPane layoutX="59.0" layoutY="282.0" prefHeight="48.0" prefWidth="48.0" styleClass="utility-button"
+                       stylesheets="@../../Styles/utility-buttons.css">
+                <ImageView fx:id="speakButtonSrc" fitHeight="42.0" fitWidth="42.0"
+                           onMouseClicked="#onSpeakButtonSrcClick" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../Images/utilities/audio.png"/>
+                </ImageView>
+            </StackPane>
+            <Label fx:id="charCountLabel" alignment="CENTER" layoutX="363.0" layoutY="350.0" prefHeight="30.0"
+                   prefWidth="115.0" styleClass="word-count-label" stylesheets="@../../Styles/labels.css"
+                   text="9999 / 9999">
+                <font>
+                    <Font name="System Bold Italic" size="16.0"/>
+                </font>
+            </Label>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="720.0" prefWidth="480.0" BorderPane.alignment="CENTER">
+            <TextArea fx:id="resultTextArea" editable="false" layoutX="-8.0" layoutY="74.0" prefHeight="262.0"
+                      prefWidth="452.0" styleClass="text-area" stylesheets="@../../Styles/text-areas.css"
+                      wrapText="true" promptText="Bản dịch">
+                <font>
+                    <Font name="System Italic" size="20.0"/>
+                </font>
+            </TextArea>
+            <StackPane layoutX="14.0" layoutY="285.0" prefHeight="48.0" prefWidth="48.0" styleClass="utility-button"
+                       stylesheets="@../../Styles/utility-buttons.css">
+                <ImageView fx:id="speakButtonDest" fitHeight="42.0" fitWidth="42.0"
+                           onMouseClicked="#onSpeakButtonDestClick" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../Images/utilities/audio.png"/>
+                </ImageView>
+            </StackPane>
+            <ChoiceBox fx:id="destLangChoiceBox" layoutX="-8.0" layoutY="14.0" prefHeight="38.0" prefWidth="450.0"
+                       styleClass="language-dropdown" stylesheets="@../../Styles/language-dropdown.css"/>
+        </AnchorPane>
+    </right>
+    <top>
+        <AnchorPane prefHeight="85.0" prefWidth="1100.0" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <AnchorPane prefHeight="720.0" stylesheets="@../../Styles/big-buttons.css" BorderPane.alignment="CENTER">
+            <Button fx:id="translateButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="14.0"
+                    layoutY="160.0" mnemonicParsing="false" onAction="#onTranslateButtonClicked" prefHeight="62.0"
+                    prefWidth="103.0" styleClass="translate-button" text="TRANSLATE">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Button>
+            <StackPane layoutX="42.0" layoutY="8.0">
+                <ImageView fitHeight="55.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../Images/decorations/double_arrow_right.png"/>
+                </ImageView>
+            </StackPane>
+        </AnchorPane>
+    </center>
+</BorderPane>

@@ -1,6 +1,6 @@
 .language-dropdown {
     -fx-background-color: #e6e6e6;
-    -fx-mark-color: rgba(101, 126, 228, 0.9);
+    -fx-mark-color: #5c8ddb;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 5, 0.4, 0, 1);
 }
 
@@ -11,9 +11,9 @@
 }
 
 .language-dropdown .context-menu {
-    -fx-background-radius: 10px;
+    -fx-background-radius: 8px;
     -fx-background-color: #f2f3f5;
-    -fx-border-radius: 10px;
+    -fx-border-radius: 8px;
 }
 
 .language-dropdown .menu-item {
@@ -29,7 +29,7 @@
 .language-dropdown .menu-item:focused {
     -fx-background-insets: 0 3px 0 3px;
     -fx-background-radius: 8px;
-    -fx-background-color: rgba(101, 126, 228, 0.9);
+    -fx-background-color: #5c8ddb;
 }
 
 .language-dropdown .menu-item:focused > .label {

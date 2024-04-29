@@ -2,6 +2,7 @@
     -fx-background-insets: 0 0 0 0;
     -fx-background-color: white;
     -fx-background-radius: 5px;
+    -fx-prompt-text-fill: black;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
 }
 

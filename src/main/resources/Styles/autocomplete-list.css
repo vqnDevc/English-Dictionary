@@ -17,24 +17,18 @@
 }
 
 .list-cell:hover {
-    -fx-background-color: whitesmoke;
-    -fx-text-fill: black;
+    -fx-background-color: #3773d4;
+    -fx-text-fill: #FFFFFF;
     background-color: whitesmoke;
 }
 
 .list-cell:selected {
-    -fx-font-size: 15px;
     -fx-border-width: 0 0 0 3px;
     -fx-border-color: transparent;
+    -fx-background-color: #3773d4;
+    -fx-text-fill: #FFFFFF;
     font-size: 15px;
     border-width: 0 0 0 3px;
     border-color: transparent;
 }
-
-/*
-.list-view .list-cell {
-    -fx-graphic: url('../icons/search-dark.png');
-    -fx-graphic-text-gap: 10px;
-} 
-*/
   

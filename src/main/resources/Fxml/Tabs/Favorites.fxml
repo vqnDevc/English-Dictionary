@@ -1,11 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.web.WebView?>
 
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.jmc.dictionary.Controllers.MenuTabs.FavoritesController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="705.0" prefWidth="1100.0" styleClass="searcher_container" stylesheets="@../../Styles/Searcher.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jmc.dictionary.Controllers.MenuTabs.FavoritesController">
+    <left>
+        <VBox prefHeight="705.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+            <TextField fx:id="searchField" onKeyTyped="#onSearchFieldKeyTyped" prefHeight="45.0" prefWidth="320.0"
+                       promptText="Search your favorite words" styleClass="search-bar"
+                       stylesheets="@../../Styles/search-bar.css">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" left="7.0" right="7.0" top="10.0"/>
+                </VBox.margin>
+            </TextField>
+            <ListView fx:id="autocompleteList" onMouseClicked="#onAutocompleteListClick" prefHeight="660.0"
+                      prefWidth="320.0" styleClass="autocomplete-list"
+                      stylesheets="@../../Styles/autocomplete-list.css">
+                <VBox.margin>
+                    <Insets bottom="6.0" left="5.0" right="7.0" top="3.0"/>
+                </VBox.margin>
+            </ListView>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane prefHeight="705.0" prefWidth="780.0" styleClass="explain-pane" BorderPane.alignment="CENTER">
+            <VBox prefHeight="705.0" prefWidth="780.0">
+                <HBox prefHeight="60.0" prefWidth="780.0">
+                    <Label fx:id="wordTargetLabel" onMouseClicked="#onWordLabelClick" prefHeight="50.0"
+                           prefWidth="400.0" styleClass="word-label" stylesheets="@../../Styles/labels.css">
+                        <font>
+                            <Font name="System Bold Italic" size="28.0"/>
+                        </font>
+                        <padding>
+                            <Insets left="15.0" right="40.0"/>
+                        </padding>
+                        <HBox.margin>
+                            <Insets top="5.0"/>
+                        </HBox.margin>
+                    </Label>
+                    <StackPane prefHeight="52.0" prefWidth="52.0" styleClass="utility-button"
+                               stylesheets="@../../Styles/utility-buttons.css">
+                        <HBox.margin>
+                            <Insets bottom="4.0" left="10.0" top="4.0"/>
+                        </HBox.margin>
+                        <ImageView fx:id="wordToSpeechUS" fitHeight="52.0" fitWidth="52.0"
+                                   onMouseClicked="#onWordToSpeechUSClick" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <Image url="@../../Images/utilities/audioUS.png"/>
+                        </ImageView>
+                    </StackPane>
+                    <StackPane prefHeight="52.0" prefWidth="52.0" styleClass="utility-button"
+                               stylesheets="@../../Styles/utility-buttons.css">
+                        <HBox.margin>
+                            <Insets bottom="4.0" left="10.0" top="4.0"/>
+                        </HBox.margin>
+                        <ImageView fx:id="wordToSpeechUK" fitHeight="52.0" fitWidth="52.0"
+                                   onMouseClicked="#onWordToSpeechUKClick" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <Image url="@../../Images/utilities/audioUK.png"/>
+                        </ImageView>
+                    </StackPane>
+                    <StackPane prefHeight="52.0" prefWidth="52.0" styleClass="utility-button"
+                               stylesheets="@../../Styles/utility-buttons.css">
+                        <HBox.margin>
+                            <Insets bottom="4.0" left="10.0" top="4.0"/>
+                        </HBox.margin>
+                        <ImageView fx:id="favoriteButton" fitHeight="44.0" fitWidth="44.0"
+                                   nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onFavoriteClick"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <StackPane.margin>
+                                <Insets bottom="2.0"/>
+                            </StackPane.margin>
+                            <Image url="@../../Images/utilities/star.png"/>
+                        </ImageView>
+                    </StackPane>
+                    <StackPane prefHeight="52.0" prefWidth="52.0" styleClass="utility-button"
+                               stylesheets="@../../Styles/utility-buttons.css">
+                        <HBox.margin>
+                            <Insets bottom="4.0" left="10.0" top="4.0"/>
+                        </HBox.margin>
+                        <ImageView fx:id="saveEditButton" disable="true" fitHeight="40.0" fitWidth="40.0"
+                                   nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onSaveEditClick"
+                                   pickOnBounds="true" preserveRatio="true" visible="false">
+                            <Image url="@../../Images/utilities/save.png"/>
+                        </ImageView>
+                    </StackPane>
+                    <StackPane prefHeight="52.0" prefWidth="52.0" styleClass="utility-button"
+                               stylesheets="@../../Styles/utility-buttons.css">
+                        <HBox.margin>
+                            <Insets bottom="4.0" left="10.0" top="4.0"/>
+                        </HBox.margin>
+                        <ImageView fx:id="editButton" fitHeight="38.0" fitWidth="38.0"
+                                   nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onEditButtonClick"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../Images/utilities/edit_note.png"/>
+                        </ImageView>
+                    </StackPane>
+                </HBox>
+                <AnchorPane prefHeight="643.0" prefWidth="780.0" styleClass="explain-pane"
+                            stylesheets="@../../Styles/explain-pane.css">
+                    <VBox.margin>
+                        <Insets top="2.0"/>
+                    </VBox.margin>
+                    <WebView fx:id="wordExplainView" fontScale="1.1" prefHeight="637.0" prefWidth="775.0"/>
+                    <HTMLEditor fx:id="wordExplainEditor" disable="true"
+                                htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;"
+                                prefHeight="637.0" prefWidth="775.0" visible="false"/>
+                </AnchorPane>
+            </VBox>
+        </AnchorPane>
+    </center>
+</BorderPane>

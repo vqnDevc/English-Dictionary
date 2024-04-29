@@ -33,8 +33,8 @@
 
 .word-count-label {
     -fx-background-color: white;
-    -fx-background-radius: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-background-radius: 5px;
+    -fx-text-fill:  #5c8ddb;
     background-color: white;
 }
 

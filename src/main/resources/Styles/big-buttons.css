@@ -1,12 +1,15 @@
 .translate-button {
-    -fx-background-image: url('../Images/decorations/translate.png');
+    -fx-background-image: url('../Images/decorations/translate1.png');
     -fx-background-size: 32;
     -fx-background-color: rgba(101, 126, 228, 0.3);
+    -fx-text-fill: white;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-border-color: white;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
     -fx-background-repeat: no-repeat;
-    -fx-background-position: 53% 20%;
+    -fx-background-position: 50% 28%;
 }
 
 .translate-button:hover {
@@ -17,14 +20,11 @@
 }
 
 .add-button {
-    -fxbackground-image: url('../Images/decorations/add_dark.png');
-    -fx-background-size: 28;
-    -fx-background-color: rgba(101, 126, 228, 0.3);
+    -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
     -fx-background-repeat: no-repeat;
-    -fx-background-position: 50% 15%;
 }
 
 .add-button:hover {
@@ -37,8 +37,9 @@
 .exit-button {
     -fx-background-image: url('../Images/decorations/exit.png');
     -fx-background-size: 32;
-    -fx-background-color: rgba(241, 85, 200, 0.3);
+    -fx-background-color: #f2f4f3;
     -fx-background-radius: 10px;
+    -fx-text-fill: #5c8ddb;
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.4, 0, 1);
     -fx-background-repeat: no-repeat;
@@ -48,7 +49,7 @@
 .exit-button:hover {
     -fx-scale-x: 0.96;
     -fx-scale-y: 0.96;
-    -fx-background-color: rgba(241, 85, 200, 0.4);
+    -fx-background-color: #f2f4f3;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.4, 0, 0);
 }
 
@@ -185,7 +186,7 @@
 }
 
 .answer-button4 {
-    -fx-background-image: url('../icons/guess-word-game/square.png');
+    -fx-background-image: url('../Images/guess-word-game/square.png');
     -fx-background-size: 32;
     -fx-background-color: rgba(70, 128, 20, 0.7);
     -fx-background-radius: 10px;
