@@ -3,7 +3,6 @@ package org.jmc.dictionary.Commandline;
 import org.jmc.dictionary.Entities.Word;
 import org.jmc.dictionary.Management.DictionaryManagement;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class DictionaryCommandline extends DictionaryManagement {

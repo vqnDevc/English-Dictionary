@@ -27,6 +27,13 @@ public class DictionaryManagement {
             + File.separator + "data"
             + File.separator + "exportData.txt";
 
+    public static final String PATH_UTILITY_ICONS_FOLDER = System.getProperty("user.dir")        //iconApp
+            + File.separator + "src"
+            + File.separator + "main"
+            + File.separator + "resources"
+            + File.separator + "Images"
+            + File.separator + "utilities" + File.separator;
+
     public DictionaryManagement() {
         dictionary = new Dictionary();
         searchResultList = new ArrayList<>();
@@ -163,12 +170,21 @@ public class DictionaryManagement {
         System.err.println("This word does not exist in the dictionary");
     }
 
+    public Word dictionaryAppLookup(String wordTarget) {
+        for (Word word : dictionary.getWordList()) {
+            if (word.getWord_target().equals(wordTarget)) {
+                return word;
+            }
+        }
+        return null;
+    }
+
     /**
      * Add word to Dictionary.
      * @param wordTarget target
      * @param wordExplain explain
      */
-    private void addToDictionary(String wordTarget, String wordExplain) {
+    public void addToDictionary(String wordTarget, String wordExplain) {
         dictionary.addWord(new Word(wordTarget.toLowerCase(), wordExplain.toLowerCase()));
     }
 
@@ -195,7 +211,7 @@ public class DictionaryManagement {
      * @param wordTarget target
      * @param replaceWordExplain replace explain
      */
-    private void updateWordInDictionary(String wordTarget, String replaceWordExplain) {
+    public void updateWordInDictionary(String wordTarget, String replaceWordExplain) {
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().equals(wordTarget)) {
                 word.setWord_explain(replaceWordExplain);
@@ -224,7 +240,7 @@ public class DictionaryManagement {
      * Remove a word from Dictionary.
      * @param wordTarget target
      */
-    private void removeFromDictionary(String wordTarget) {
+    public void removeFromDictionary(String wordTarget) {
         dictionary.getWordList().removeIf(word -> word.getWord_target().equals(wordTarget));
     }
 
@@ -243,7 +259,7 @@ public class DictionaryManagement {
      * Search word with prefix.
      * @param prefixWord string
      */
-    private void dictionarySearcher(String prefixWord) {
+    public void dictionarySearcher(String prefixWord) {
         searchResultList.clear();
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().startsWith(prefixWord)) {
@@ -281,7 +297,7 @@ public class DictionaryManagement {
      * @param wordTarget target
      * @return boolean
      */
-    private boolean wordExit(String wordTarget) {
+    public boolean wordExit(String wordTarget) {
         for (Word word : dictionary.getWordList()) {
             if (word.getWord_target().equals(wordTarget)) {
                 return true;
